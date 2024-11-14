@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Shop - Quality Cars for Sale</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Home Section */
+        #home {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        #home .hero-image {
+            width: 100%;
+            height: 60vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        #home .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #home .home-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 600px;
+        }
+
+        #home h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        #home p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            padding: 15px 25px;
+            background-color: #ff6600;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #e65c00;
+        }
+
+        /* Featured Cars Section */
+        #featured-cars {
+            padding: 50px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        #featured-cars h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+
+        .car-gallery {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .car-item {
+            width: 30%;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .car-item:hover {
+            transform: scale(1.05);
+        }
+
+        .car-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .car-item h3 {
+            padding: 15px;
+            background-color: #333;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        /* Cart Section */
+        #cart {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #333;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 250px;
+            z-index: 1000;
+        }
+
+        #cart h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        #cart .cart-items {
+            margin-bottom: 15px;
+        }
+
+        #cart .cart-items li {
+            list-style-type: none;
+            margin-bottom: 5px;
+        }
+
+        #cart .total {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        #cart .refresh-btn {
+            background-color: #ff6600;
+            color: white;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        #cart .refresh-btn:hover {
+            background-color: #e65c00;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="gallery.html">Car Gallery</a></li>
+                <li><a href="aboutcars.html">About Cars</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section with More Design and Pictures -->
+    <section id="home">
+        <div class="hero-image">
+            <img src="car-shop-banner.jpg" alt="Luxury Cars Banner"> <!-- Replace with your image -->
+        </div>
+        <div class="home-content">
+            <h1>Welcome to Our Car Shop!</h1>
+            <p>Your trusted destination for premium cars. Browse our collection of vehicles and find your perfect ride today!</p>
+        </div>
+    </section>
+
+    <!-- Featured Cars Section -->
+    <section id="featured-cars">
+        <h2>Sport Cars</h2>
+        <div class="car-gallery">
+            <div class="car-item" onclick="addToCart('Lamborghini', 200000)">
+                <img src="images/1.jpg" alt="Car Model 1"> <!-- Replace with actual car image -->
+                <h3>Lamborghini</h3>
+            </div>
+            <div class="car-item" onclick="addToCart('Ferrari', 250000)">
+                <img src="images/2.webp" alt="Car Model 2"> <!-- Replace with actual car image -->
+                <h3>Ferrari</h3>
+            </div>
+            <div class="car-item" onclick="addToCart('McLaren', 280000)">
+                <img src="images/3.jpg" alt="Car Model 3"> <!-- Replace with actual car image -->
+                <h3>McLaren</h3>
+            </div>
+        </div>
+    </section>
+    <section id="featured-cars">
+        <h2>Sport Cars</h2>
+        <div class="car-gallery">
+            <div class="car-item" onclick="addToCart('Lamborghini', 200000)">
+                <img src="images/1.jpg" alt="Car Model 1"> <!-- Replace with actual car image -->
+                <h3>Lamborghini</h3>
+            </div>
+            <div class="car-item" onclick="addToCart('Ferrari', 250000)">
+                <img src="images/2.webp" alt="Car Model 2"> <!-- Replace with actual car image -->
+                <h3>Ferrari</h3>
+            </div>
+            <div class="car-item" onclick="addToCart('McLaren', 280000)">
+                <img src="images/3.jpg" alt="Car Model 3"> <!-- Replace with actual car image -->
+                <h3>McLaren</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <div id="cart">
+        <h3>Shopping Cart</h3>
+        <ul class="cart-items" id="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </ul>
+        <div class="total">Total: $<span id="cart-total">0</span></div>
+        <button class="refresh-btn" onclick="resetCart()">Clear Cart</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Car Shop - Quality Cars for Sale</p>
+    </footer>
+
+    <script>
+        // JavaScript to handle cart functionality
+        let cart = [];
+        let cartTotal = 0;
+
+        // Function to add an item to the cart
+        function addToCart(carName, carPrice) {
+            cart.push({ name: carName, price: carPrice });
+            cartTotal += carPrice;
+
+            // Update the cart display
+            updateCartDisplay();
+        }
+
+        // Function to update the cart display
+        function updateCartDisplay() {
+            // Update cart items list
+            const cartItemsElement = document.getElementById('cart-items');
+            cartItemsElement.innerHTML = '';  // Clear previous items
+
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - $${item.price.toLocaleString()}`;
+                cartItemsElement.appendChild(li);
+            });
+
+            // Update total
+            document.getElementById('cart-total').textContent = cartTotal.toLocaleString();
+        }
+
+        // Function to reset the cart
+        function resetCart() {
+            cart = [];
+            cartTotal = 0;
+
+            // Clear the cart display
+            updateCartDisplay();
+        }
+    </script>
+
+</body>
+</html>
